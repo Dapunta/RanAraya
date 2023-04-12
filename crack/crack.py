@@ -235,7 +235,7 @@ class main:
             print('\r%sSinyale Ilang Cok !%s                                '%(f,P),end=''); sys.stdout.flush()
             self.crack(id,ps)
         except Exception as e:
-            print(e)
+            #print(e)
             self.crack(id,ps)
 
 if __name__ == '__main__':
