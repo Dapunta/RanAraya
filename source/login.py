@@ -135,10 +135,13 @@ class login:
         tok = req['access_token']
         return(str(tok))
     def get_tahun_pembuatan(self):
-        bln    = {'01':'Januari', '02':'Februari', '03':'Maret', '04':'April', '05':'Mei', '06':'Juni', '07':'Juli', '08':'Agustus', '09':'September', '10':'Oktober', '11':'November', '12':'Desember'}
-        req    = self.xyz.get('https://graph.facebook.com/me/albums?fields=id,name,created_time&limit=1000&access_token=%s'%(self.token_eaag),cookies=self.cookie).json()
-        t,m,h  = [x['created_time'].split('T')[0] for x in req['data'] if x['name']=='Foto Profil'][0].split('-')
-        tb     = '%s %s %s'%(h,bln[m],t)
+        try:
+            bln    = {'01':'Januari', '02':'Februari', '03':'Maret', '04':'April', '05':'Mei', '06':'Juni', '07':'Juli', '08':'Agustus', '09':'September', '10':'Oktober', '11':'November', '12':'Desember'}
+            req    = self.xyz.get('https://graph.facebook.com/me/albums?fields=id,name,created_time&limit=1000&access_token=%s'%(self.token_eaag),cookies=self.cookie).json()
+            t,m,h  = [x['created_time'].split('T')[0] for x in req['data'] if x['name']=='Foto Profil'][0].split('-')
+            tb     = '%s %s %s'%(h,bln[m],t)
+        except Exception as e:
+            tb = 'Unknown'
         self.fty.update({'Pembuatan':tb})
     def prof(self):
         try: fren = str(self.xyz.get('https://graph.facebook.com/me?fields=friends.limit(0).fields(id,name,birthday)&access_token=%s'%(self.token_eaat),cookies=self.cookie).json()['friends']['summary']['total_count']); self.fty.update({'Teman':fren})
