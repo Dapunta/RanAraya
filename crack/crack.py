@@ -173,7 +173,7 @@ class main:
         print('%s╰%s╯%s'%(y,'─'*(72),P))
     def sort(self):
         print('\n%s[%s•%s] %sProses Crack Dimulai...\n'%(M,P,M,P))
-        with ThreadPoolExecutor(max_workers=25) as qwerty:
+        with ThreadPoolExecutor(max_workers=35) as qwerty:
             for x in self.file:
                 try:
                     id = x.split('|')[0]
