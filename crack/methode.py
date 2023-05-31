@@ -30,25 +30,6 @@ def waktu():
 #--> Global Variable
 perangkat = '; m_pixel_ratio=1.25; dpr=1.125; wd=360x780'
 
-#--> Encrypt Facebook Password
-# def encpass(pw,wkt):
-#     sci = 'DapuntaLoveRanii'
-#     try:
-#         sem = open('login/publickey.json','r').read()
-#         if sem == 'Dapunta':
-#             return ('#PWD_BROWSER:%s:%s:%s'%(str(len(sci)-11),wkt,pw))
-#         else:
-#             pke, kid = sem.split('|')
-#             rdb      = RDM.get_random_bytes(len(sci)*2)
-#             dpt      = AES.new(rdb, AES.MODE_GCM, nonce=bytes([0]*(len(sci)-4)), mac_len=len(sci))
-#             dpt.update(str(wkt).encode("utf-8"))
-#             epw, ctg = dpt.encrypt_and_digest(pw.encode("utf-8"))
-#             sld      = SB(PK(binascii.unhexlify(str(pke)))).encrypt(rdb)
-#             ecp      = base64.b64encode(bytes([1,int(kid),*list(struct.pack('<h', len(sld))),*list(sld),*list(ctg),*list(epw)])).decode("utf-8")
-#             return ('#PWD_BROWSER:%s:%s:%s'%(str(len(sci)-11),wkt,str(ecp)))
-#     except Exception as e:
-#         return ('#PWD_BROWSER:%s:%s:%s'%(str(len(sci)-11),wkt,pw))
-
 #--> User Agent Vivo
 def random_ua_vivo():
     a = random.randrange(110,113)
